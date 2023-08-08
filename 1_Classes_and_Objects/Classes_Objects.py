@@ -1,8 +1,3 @@
-# ObjectOrientedProgramming_using_Python
-
-## Classes and Objects
-
-```python
 class Employee:
     name = "Sáu Bảnh" # is a properties
     designation = "Developer" # is a properties
@@ -17,4 +12,3 @@ employeeOne = Employee() # object initialization
 
 employeeOne.name
 # employeeOne.hasAchievedTarget()
-```
