@@ -162,3 +162,92 @@ while True:
     elif userChoise == 4:
         quit()
 ```
+
+### Inheritance
+
+```python
+class Apple:
+    manufacturer = "Apple Inc."
+    contactWebsite = "www.apple.com/contact"
+
+    def contact_Details(self):
+        print("To contact us, log on to ", self.contactWebsite)
+
+class Macbook(Apple):
+    def __init__(self):
+        self.yearOfManufacturer = 2017
+
+    def manufacturerDetails(self):
+        # print("This Macbook was manufacturer in the year {} by {}".format(self.yearOfManufacturer, self.manufacturer))
+        print(f"This Macbook was manufacturer in the year {self.yearOfManufacturer} by {self.manufacturer}")
+
+macbook = Macbook()
+macbook.manufacturerDetails()
+macbook.contact_Details()
+```
+
+### Performing a Multiple Inheritance in Python
+
+```python
+class OperatingSystem:
+    multitasking = True
+    name = "Mac OS"
+
+class Apple:
+    website = "www.apple.com"
+    name = "Apple"
+
+class Macbook(Apple, OperatingSystem):
+    def __init__(self):
+        if self.multitasking:
+            print(f"This is multi tasking system. Visit {self.website} for more details")
+            print(f"Name: {self.name}")
+macBook = Macbook()
+```
+
+`Note: it will give priority to the first inherited parameter`
+
+### Performing a Multilevel Inheritance in Python
+
+```python
+class MusicalInstruments:
+    numberOfMajorKeys = 12
+
+class StringInstruments(MusicalInstruments):
+    typeOfWood = "Tonewood"
+
+class Guitar(StringInstruments):
+    def __init__(self):
+        self.numberOfStrings = 6
+        print(f"This guitar consists of {self.numberOfStrings} strings. It is made of {self.typeOfWood} and it can play {self.numberOfMajorKeys} keys")
+
+guitar = Guitar()
+```
+
+### Public, Protected and Private - Naming Conventions in Python
+
+`Public => memberName`
+`Protected => _memberName`
+`Private => __memberName`
+
+```python
+# Public => memberName
+# Protected => _memberName
+# Private => __memberName
+
+class Car:
+    numberOfWheels = 4
+    _color = "Black"
+    __yearOfManufacturer = 2017 # _Car__yearOfManufacturer
+
+class Bmw(Car):
+    def __init__(self):
+        print("Protected atribute color: " + self._color)
+
+car = Car()
+print("Public attribute numberOfWheels: ", car.numberOfWheels)
+
+bmw = Bmw()
+# print("Private attribute yearOfManufacturer: ", car.__yearOfManufacturer) is not work
+print("Private attribute yearOfManufacturer: ", car._Car__yearOfManufacturer)
+```
